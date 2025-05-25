@@ -1,0 +1,95 @@
+# Configuration file for sim_rewiring_ex1.py
+---
+master_seed: 10
+simulation_time: 1000.0
+number_of_sequence_repetition: 1000
+sampling_interval_weights: 0.3
+num_neurons: 100
+
+input_parameters:
+    num_inputs: 270
+    pattern_delay: 0.060
+    pattern_duration: 0.060
+    delay_between_sequences: 0.0
+    num_patterns_per_assembly: 1
+    num_assemblies: 9
+    assembly_size: 30
+    rate: 100.0
+    rate_bg: 1.0
+
+connection_parameters:
+    n_syn_start: 10
+    n_syn_max_AcD: 18
+    n_syn_max_nonAcD: 10
+    
+    w_max: 8.0
+    w_ini_min: 6.0
+    w_ini_max: 8.0
+    theta_ini: -0.5
+    theta_min: -2.0
+    
+    T: 0.3
+    eta: 0.002
+    
+    scale_prior: 1.0
+    lambd: 10.0
+    scale_w: 0.55
+    grad_sigmoid_clip: 8.0
+    
+    scale_likelihood: 1.5
+    gamma: 1.0
+    
+    
+    A: 0.0
+    c_BAP: 5.5
+    gamma_BAP: 1.0
+    BAP_active: True
+    
+    scale_theta: 1.0
+    
+    tau_pre: 20e-3
+    tau_post: 20e-3
+    
+
+neuron_parameters:
+    num_branches: 3
+        
+    branch_parameters:
+        AcD_num: 50
+        nonAcD_num: 50
+        
+        branch_dynamics: True
+        
+        v_thr: -50.0
+        v_rest: -67.0
+        r_mem: 10e6    #Memmesheimer model(2ms integration time window on dendrites)
+        c_mem: 200e-12 #Memmesheimer model(2ms integration time window on dendrites)
+        tau_syn: 2.0e-3 #Memmesheimer model(2ms integration time window on dendrites)
+        dendrite_refractory_period: 5.0e-3 
+        d_spike_rise_time: 1e-3
+        d_spike_decay_time: 4.0e-3
+        dendritic_spike_max_amp: 2.0e-9
+        constant_input_amp: 0.0
+        
+        inh_amp: 0.0
+        inh_freq: 0.0
+        inh_phase: 0.0
+        
+
+    soma_parameters:
+        AcD_num: 50
+        nonAcD_num: 50
+        
+        PC_c_mem: 275e-12         
+        PC_r_mem: 40e6
+        PC_v_rest: -67.0
+        PC_v_reset: -67.0
+        PC_v_thr: -55.0
+        PC_refractory_period: 2e-3
+        
+        inh_amp: -0.7e-9
+        inh_freq: 0.0
+        inh_phase: 0.0
+
+        tau_syn: 2e-3
+        tau_inh: 2e-3
